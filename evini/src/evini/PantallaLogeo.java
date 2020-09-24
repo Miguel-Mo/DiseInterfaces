@@ -88,8 +88,12 @@ public class PantallaLogeo extends JFrame {
             String userName = textField.getText();
             String password = passwordField.getText();
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/evinidb",
-                    "root", "1234");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/evinidb?serverTimezone=UTC",
+                    "root", "1234" );
+                
+                
+                
+                
 
                 PreparedStatement st = (PreparedStatement) ((java.sql.Connection) connection)
                     .prepareStatement("Select name, password from usuario where name=? and password=?");
